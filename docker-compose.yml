@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  webserver:
+    container_name: webserver
+    image: quandev/cs312hw4_webserver:1.0
+    ports:
+      - '8080:8080'
+
+  webclient:
+    container_name: webclient
+    image: quandev/cs312hw4_webclient:1.0
+    depends_on:
+      - webserver
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
